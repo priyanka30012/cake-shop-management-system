@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cake shop</title>
+</head>
+<style>
+	body{
+    background-color: rgb(231, 206, 253);
+    border: 3px double rgb(65, 75, 112);
+    width: 500px;
+margin-left: 500px;
+margin-top: 120px;
+border-radius: 15px;
+box-shadow: 20px 20px rgb(220, 185, 251);
+}
+form{
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+</style>
+<body>
+	<h1>Add Order</h1>
+	<form action="{{ url_for('addInfo') }}" method="POST">
+		<label for="product">Product:</label>
+		<input type="text" id="product" name="product" required><br><br>
+
+		<label for="rate">Rate:</label>
+		<input type="number" id="rate" name="rate" required><br><br>
+
+		<label for="per">Per:</label>
+		<input type="text" id="per" name="per" required><br><br>
+
+		<button type="submit">Submit</button>
+	</form>
+	<a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

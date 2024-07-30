@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Page</title>
+  </head>
+  <style>
+   body{
+    background-color: rgb(231, 206, 253);
+     border: 3px double rgb(65, 75, 112);
+      border-radius: 15px;
+       width:320px;
+       margin-left:350px;
+       margin: 530px;
+       padding: 30px;
+      margin-top: 120px;
+      box-shadow: 20px 20px rgb(220, 185, 251);
+        font-family: Algerian, sans-serif;
+
+   }
+  </style>
+  <body>
+    <h1 style="color: blue;" align="center">Update</h1>
+    <form method="POST" action="{{ url_for('update', product=cake.product) }}">
+      <label for="rate">Rate:</label>
+      <input type="text" id="rate" name="rate" value="{{ cake.rate }}"><br><br>
+      <label for="per">Per:</label>
+      <input type="text" id="per" name="per" value="{{ cake.per }}"><br><br>
+      <button type="submit">Update</button>
+      <br>
+      <a href="{{ url_for('home') }}" align="margin-left">Back</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!--final project-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cake Shop</title>
+
+    <style>
+
+      /* CSS styling */
+      body {
+     background-color: rgb(231, 206, 253);
+     border: 3px double rgb(65, 75, 112);
+      border-radius: 15px;
+       width:800px;
+       margin-left:350px;
+      margin-top: 120px;
+        box-shadow: 20px 20px rgb(220, 185, 251);
+        font-family: Algerian, sans-serif;
+        background-size: 160vh;
+    </style>
+    <style>
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-left: 20px;
+      }
+
+      th {
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+
+
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+
+      }
+
+      input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        margin-right: 60px;
+      }
+
+      input[type=button] {
+        background-color: blue;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      form {
+        text-align: center;
+        margin: 10px 10px;
+      }
+
+      label {
+        font-size: 1.2rem;
+      }
+
+      input[type=text] {
+        width: 50%;
+        padding: 30px;
+        margin: 8px 10px;
+        box-sizing: border-box;
+        border: 2px solid #4caf50;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .Button:hover {
+        background-color: #2e8b57;
+      }
+
+      .mid {
+        text-align: center;
+      }
+
+      td form {
+        display: inline-block;
+        padding: 10px;
+         margin: 8px 10px;
+      }
+
+      td form button {
+        padding: 8px 10px;
+         border-radius: 15px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <h1 style="color: rgb(4, 149, 253)" align="center">Delicious Cake For You</h1>
+    <br /><br />
+
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Rate</th>
+          <th>Per</th>
+          <th>Delete</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cake in cakes %}
+        <tr>
+          <td>{{ cake.product }}</td>
+          <td>{{ cake.rate }}</td>
+          <td>{{ cake.per }}</td>
+          <td>
+            <form action="{{ url_for('delete', product=cake.product) }}" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+          <td>
+            <form action="{{ url_for('update', product=cake.product) }}" method=["POST", "GET"]>
+              <button>Update</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br /><br />
+    <input type="button" value="Add Order" onclick="window.location.href='add1'" class="Button" />
+    <input type="button" value="Contact Us" class="Button" />
+
+  </body>
+</html>
